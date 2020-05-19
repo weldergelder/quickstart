@@ -38,7 +38,6 @@ stages:
     - script: |
         cd node
         npm install
-        node index.js
       displayName: 'npm install, build and test'
       
     - task: ArchiveFiles@2
