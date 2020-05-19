@@ -36,6 +36,7 @@ stages:
       displayName: 'Install Node.js'
 
     - script: |
+        cd node
         npm install
         node index.js
       displayName: 'npm install, build and test'
@@ -43,7 +44,7 @@ stages:
     - task: ArchiveFiles@2
       displayName: 'Archive files'
       inputs:
-        rootFolderOrFile: '$(System.DefaultWorkingDirectory)/node'
+        rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
         includeRootFolder: false
         archiveType: zip
         archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
